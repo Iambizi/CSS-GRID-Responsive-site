@@ -6,15 +6,15 @@ button {
   background: #ffc600;
   border: 0;
   padding: 10px 20px;
+  border-radius: 5px;
 }
 
 img {
   max-width: 100%;
+  border-radius: 10px;
 }
-
-/* .wrapper */
-
-.wrapper {
+/* Wrapper */
+.wrapper{
   display: grid;
   grid-gap: 20px;
 }
@@ -22,34 +22,35 @@ img {
 .top {
   display: grid;
   grid-gap: 20px;
-  grid-template-areas:
-    "hero hero cta1"
-    "hero hero cta2"
+  grid-template-areas: 
+  "hero hero cta1"
+  "hero hero cta2"
 }
 
 .hero {
   grid-area: hero;
   min-height: 400px;
   background: white url(images/taco.jpg);
-  background-size: cover;
+  background-size:cover;
   background-position: bottom right;
   padding: 50px;
   display: flex;
   flex-direction: column;
   align-items: start;
   justify-content: center;
+  border-radius: 10px;
 }
 
-.hero > * {
-  background: var(--yellow);
+.hero > *{
+  background-color: var(--yellow);
   padding: 5px;
+  border-radius: 2px;
 }
-
-.cta {
+.cta{
   background: var(--yellow);
   display: grid;
   align-items: center;
-  justify-items: center;
+  justify-content: center;
   align-content: center;
 }
 
@@ -59,10 +60,12 @@ img {
 
 .cta1 {
   grid-area: cta1;
+  border-radius: 10px;
 }
 
 .cta2 {
   grid-area: cta2;
+  border-radius: 10px;
 }
 
 .price {
@@ -70,12 +73,12 @@ img {
   font-weight: 300;
 }
 
-/* Navigation */
-
+/* navigation */
 .menu ul {
   display: grid;
   grid-gap: 10px;
   padding: 0;
+  margin: 20px 0;
   list-style: none;
   grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
 }
@@ -88,52 +91,55 @@ img {
   text-align: center;
   color: var(--black);
   text-transform: uppercase;
-  font-size: 20px;
+  font-size:20px;
+  border-radius: 3px;
 }
 
 [aria-controls="menu-list"] {
   display: none;
 }
 
-/* Features! */
+/* Features */
 
-.features {
+.features{
   display: grid;
   grid-gap: 20px;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 }
 
-.feature {
+.feature{
   background: white;
   padding: 10px;
   border: 1px solid white;
   text-align: center;
-  box-shadow: 0 0 4px  rgba(0,0,0,0.1);
+  box-shadow: 0 0 4px rgba(0,0,0,0.1);
+  border-radius: 10px;
 }
 
-.feature .icon {
+.feature .icon p{
   font-size: 50px;
 }
+
 .feature p {
-  color: rgba(0,0,0,0.5);
+  color: rgba(0,0,0.5);
 }
 
-/* About Section */
+/* About section */
 
 .about {
   background: white;
-  padding:50px;
+  padding: 50px;
   display: grid;
   grid-template-columns: 400px 1fr;
   align-items: center;
+  border-radius: 10px;
 }
 
-/* Gallery! */
-
-.gallery {
+/* Gallery */
+.gallery{
   display: grid;
   grid-gap: 20px;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
 }
 
 .gallery img {
@@ -159,60 +165,54 @@ img {
   --direction: right;
 }
 
-@media (max-width: 1000px) {
-  .menu {
+@media (max-width: 1000px){
+  .menu{
     order: -1;
-    perspective: 800px;
+    perspective: 800px
   }
   [aria-controls="menu-list"] {
     display: block;
     margin-bottom: 10px;
   }
-
-  .menu ul {
+  .menu ul{
     max-height: 0;
     overflow: hidden;
     transform: rotateX(90deg);
     transition: all 0.5s;
-  }
-
+  } 
   [aria-expanded="true"] ~ ul {
-    display: grid;
+    display:grid;
     max-height: 500px;
     transform: rotateX(0);
   }
 
-  [aria-expanded="false"] .close {
-    display: none;
+  [aria-expanded="false"].close{
+    display:inline-block;
   }
 
-  [aria-expanded="true"] .close {
-    display: inline-block;
-  }
-
-  [aria-expanded="true"] .open {
-    display: none;
+  [aria-controls="true"].open{
+    display:none;
   }
 
 }
 
-@media (max-width: 700px) {
-  .top {
+@media (max-width: 700px){
+  .top{
     grid-template-areas:
-      "hero hero"
-      "cta1 cta2"
+    "hero hero"
+    "cta1 cta2"
   }
-  /* About */
-  .about {
+  /* about */
+  .about{
     grid-template-columns: 1fr;
   }
 }
 
-@media (max-width: 500px) {
-  .top {
+@media (max-width: 500px){
+  .top{
     grid-template-areas:
-      "hero"
-      "cta1"
-      "cta2"
+    "hero"
+    "cta1"
+    "cta2"
   }
 }
